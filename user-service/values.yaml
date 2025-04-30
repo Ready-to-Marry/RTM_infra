@@ -69,3 +69,7 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+secrets:
+  db:
+    secretRef: rtm-user-service-secret  # sealed-secret.yaml에 정의된 SealedSecret의 이름
