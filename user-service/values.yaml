@@ -34,7 +34,7 @@ ingress:
   hosts:
     - host: rtm.com
       paths:
-        - path: /
+        - path: /user
           pathType: Prefix
   tls: []
 
