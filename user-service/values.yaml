@@ -3,7 +3,7 @@ replicaCount: 2
 image:
   repository: hyundooboo/my-app
   pullPolicy: IfNotPresent
-  tag: "1"
+  tag: "17"
 
 imagePullSecrets: []
 nameOverride: ""
