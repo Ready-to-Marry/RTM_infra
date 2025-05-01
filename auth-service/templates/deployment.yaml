@@ -46,8 +46,8 @@ spec:
               protocol: TCP
           {{- with .Values.livenessProbe }}
           envFrom:
-            - secretRefs:
-                name: {{ .Values.secrets.db.secretRef }}
+            - secretRef:
+                name: {{ .Values.secrets.db.secretRefs }}
           livenessProbe:
             {{- toYaml . | nindent 12 }}
           {{- end }}
