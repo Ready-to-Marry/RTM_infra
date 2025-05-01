@@ -81,4 +81,4 @@ affinity: {}
 
 eureka:
   server:
-    contextPath: /eureka
+    contextPath: /
