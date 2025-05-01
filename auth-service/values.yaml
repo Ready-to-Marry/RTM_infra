@@ -1,4 +1,5 @@
-replicaCount: 2
+replicaCount: 1
+revisionHistoryLimit: 2
 
 image:
   repository: hyundooboo/rtm-auth-service
@@ -42,20 +43,28 @@ ingress:
           pathType: Prefix
   tls: []
 
-resources: {}
+resources:
+  requests:
+    memory: "1Gi"
+    cpu: "500m"
+  limits:
+    memory: "2Gi"
+    cpu: "1"
 
 livenessProbe:
   httpGet:
     path: /actuator/health
-    port: 8083
-  initialDelaySeconds: 10
+    port: 8084
+  initialDelaySeconds: 60
+  timeoutSeconds: 5
   periodSeconds: 10
   failureThreshold: 3
 readinessProbe:
   httpGet:
     path: /actuator/health
-    port: 8083
-  initialDelaySeconds: 10
+    port: 8084
+  initialDelaySeconds: 60
+  timeoutSeconds: 5
   periodSeconds: 10
   failureThreshold: 3
 
