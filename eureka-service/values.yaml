@@ -31,7 +31,7 @@ ingress:
   enabled: true
   className: "nginx"
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /eureka/
+    nginx.ingress.kubernetes.io/rewrite-target: /
   hosts:
     - host: rtm.com
       paths:
@@ -49,7 +49,7 @@ resources:
 
 livenessProbe:
   httpGet:
-    path: /eureka/actuator/health
+    path: /actuator/health
     port: 8761
   initialDelaySeconds: 60
   timeoutSeconds: 5
@@ -57,7 +57,7 @@ livenessProbe:
   failureThreshold: 3
 readinessProbe:
   httpGet:
-    path: /eureka/actuator/health
+    path: /actuator/health
     port: 8761
   initialDelaySeconds: 60
   timeoutSeconds: 5
@@ -78,7 +78,3 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-
-eureka:
-  server:
-    contextPath: /
