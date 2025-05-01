@@ -73,3 +73,10 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+<<<<<<< HEAD
+=======
+
+secrets:
+  db:
+    secretRef: rtm-auth-service-secret
+>>>>>>> origin/main
