@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "Eureka-service.fullname" . }}
+  name: {{ include "eureka-service.fullname" . }}
   labels:
-    {{- include "Eureka-service.labels" . | nindent 4 }}
+    {{- include "eureka-service.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -12,4 +12,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "Eureka-service.selectorLabels" . | nindent 4 }}
+    {{- include "eureka-service.selectorLabels" . | nindent 4 }}
