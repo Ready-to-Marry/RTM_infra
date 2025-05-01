@@ -72,4 +72,4 @@ affinity: {}
 
 secrets:
   db:
-    secretRef: rtm-auth-service-secret
+    secret: rtm-auth-service-secret
