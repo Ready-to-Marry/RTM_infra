@@ -47,6 +47,7 @@ spec:
           envFrom:
             - secretRef:
                 name: {{ .Values.secrets.db.secretRef }}
+          {{- with .Values.livenessProbe }}
           livenessProbe:
             {{- toYaml . | nindent 12 }}
           {{- end }}
