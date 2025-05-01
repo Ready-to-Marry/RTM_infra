@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "Auth-service.fullname" . }}
+  name: {{ include "auth-service.fullname" . }}
   labels:
-    {{- include "Auth-service.labels" . | nindent 4 }}
+    {{- include "auth-service.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -12,4 +12,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "Auth-service.selectorLabels" . | nindent 4 }}
+    {{- include "auth-service.selectorLabels" . | nindent 4 }}

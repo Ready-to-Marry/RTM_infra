@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "Search-service.name" -}}
+{{- define "search-service.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "Search-service.fullname" -}}
+{{- define "search-service.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "Search-service.chart" -}}
+{{- define "search-service.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "Search-service.labels" -}}
-helm.sh/chart: {{ include "Search-service.chart" . }}
-{{ include "Search-service.selectorLabels" . }}
+{{- define "search-service.labels" -}}
+helm.sh/chart: {{ include "search-service.chart" . }}
+{{ include "search-service.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "Search-service.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "Search-service.name" . }}
+{{- define "search-service.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "search-service.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "Search-service.serviceAccountName" -}}
+{{- define "search-service.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "Search-service.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "search-service.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
