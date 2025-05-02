@@ -81,7 +81,7 @@ affinity: {}
 
 env:
   SPRING_APPLICATION_NAME: user-service
-  EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server.eureka.svc.cluster.local:8761/eureka
+  EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eureka-server:8761/eureka
   EUREKA_CLIENT_REGISTER_WITH_EUREKA: "true"
   EUREKA_CLIENT_FETCH_REGISTRY: "true"
   EUREKA_INSTANCE_PREFER_IP_ADDRESS: "true"
