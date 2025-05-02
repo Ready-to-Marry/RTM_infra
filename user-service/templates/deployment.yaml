@@ -49,7 +49,6 @@ spec:
             {{- range .Values.env }}
             - name: {{ .name }}
               value: {{ .value }}
-            {{- end }}
           envFrom:
             - secretRef:
                 name: {{ .Values.secrets.db.secretRef }}
