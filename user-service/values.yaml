@@ -79,24 +79,18 @@ tolerations: []
 
 affinity: {}
 
-secrets:
-  db:
-    secretRef: rtm-user-service-secret  # sealed-secret.yaml에 정의된 SealedSecret의 이름
-
-# Spring Boot 애플리케이션 설정
 env:
   - name: SPRING_APPLICATION_NAME
     value: user-service
-
-  # Eureka 설정
   - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
     value: http://eureka-server.eureka.svc.cluster.local:8761/eureka
-
   - name: EUREKA_CLIENT_REGISTER_WITH_EUREKA
     value: "true"
-
   - name: EUREKA_CLIENT_FETCH_REGISTRY
     value: "true"
-
   - name: EUREKA_INSTANCE_PREFER_IP_ADDRESS
     value: "true"
+
+secrets:
+  db:
+    secretRef: rtm-user-service-secret  # sealed-secret.yaml에 정의된 SealedSecret의 이름
