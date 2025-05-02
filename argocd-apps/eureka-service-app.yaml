@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: eureka-service
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Ready-to-Marry/RTM_infra
+    targetRevision: main
+    path: eureka-service
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: spring
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
