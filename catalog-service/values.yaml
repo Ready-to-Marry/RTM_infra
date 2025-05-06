@@ -17,7 +17,9 @@ serviceAccount:
   name: ""
 
 podAnnotations: {}
-podLabels: {}
+podLabels:
+  app: catalog-service
+  environment: production
 
 podSecurityContext: {}
 
