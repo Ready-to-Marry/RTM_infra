@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: wait-for-sync-zero
+  name: wait-sync-zero
 spec:
   backoffLimit: 0
   template:
