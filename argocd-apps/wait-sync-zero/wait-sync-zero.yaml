@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: wait-for-sync-zero
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      containers:
+        - name: wait
+          image: bitnami/kubectl:latest
+          command:
+            - /bin/sh; -c
+            - |
+              echo "Waiting for Eureka..."
+              for i in $(seq 1 30); do
+                if kubectl rollout status deployment/eureka-service -n spring; then exit 0; fi
+                sleep 5
+              done
+              exit 1
+      restartPolicy: Never

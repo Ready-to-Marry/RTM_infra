@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: wait-for-sync-zero
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Ready-to-Marry/RTM_infra
+    targetRevision: main
+    path: argocd-apps/wait-sync-zero
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: spring
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

@@ -1,12 +1,9 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: wait-for-sync-two
-  namespace: spring
-  annotations:
-    argocd.argoproj.io/hook: PreSync
-    argocd.argoproj.io/sync-wave: "3"
+  name: wait-for-sync-four
 spec:
+  backoffLimit: 0
   template:
     spec:
       containers:
@@ -18,9 +15,9 @@ spec:
             - |
               echo "Waiting for services to be ready..."
               for i in $(seq 1 30); do
-                if kubectl get pods -l app=user-service -n spring | grep "1/1" | grep "Running" &&
-                   kubectl get pods -l app=partner-service -n spring | grep "1/1" | grep "Running" &&
-                   kubectl get pods -l app=admin-service -n spring | grep "1/1" | grep "Running"; then
+                if kubectl get pods -l app=search-service -n spring | grep "1/1" | grep "Running" &&
+                   kubectl get pods -l app=payment-service -n spring | grep "1/1" | grep "Running" &&
+                   kubectl get pods -l app=auth-service -n spring | grep "1/1" | grep "Running"; then
                   echo "All services are ready!"
                   exit 0
                 fi
@@ -30,4 +27,3 @@ spec:
               echo "Timed out waiting for services"
               exit 1
       restartPolicy: Never
-  backoffLimit: 0
