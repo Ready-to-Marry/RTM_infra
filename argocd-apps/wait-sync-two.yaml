@@ -4,7 +4,7 @@ metadata:
   name: wait-for-sync-two
   namespace: spring
   annotations:
-    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/sync-wave: "3"
 spec:
   template:
