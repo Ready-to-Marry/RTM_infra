@@ -1,0 +1,4 @@
+resources:
+  - wait-sync-zero.yaml
+  - wait-sync-zero-role.yaml
+  - wait-sync-zero-rolebinding.yaml

@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: eureka-service
+  name: wait-for-sync-two
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "0"
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   project: default
   source:
     repoURL: https://github.com/Ready-to-Marry/RTM_infra
     targetRevision: main
-    path: eureka-service
+    path: argocd-apps/wait-sync-two
   destination:
     server: https://kubernetes.default.svc
     namespace: spring
