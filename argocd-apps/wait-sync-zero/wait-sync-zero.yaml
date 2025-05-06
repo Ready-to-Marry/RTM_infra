@@ -16,7 +16,7 @@ spec:
             - |
               echo "🔎 Waiting for Eureka..."
               for i in $(seq 1 30); do
-                if kubectl rollout status deployment/eureka-service -n spring; then
+                if kubectl get pods -l app=eureka-service -n spring | grep "1/1" | grep "Running"; then
                   echo "✅ Eureka is ready!"
                   exit 0
                 fi
