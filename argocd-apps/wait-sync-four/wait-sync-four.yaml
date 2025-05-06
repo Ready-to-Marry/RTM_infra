@@ -2,6 +2,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: wait-sync-four
+  namespace: spring
 spec:
   backoffLimit: 0
   template:
