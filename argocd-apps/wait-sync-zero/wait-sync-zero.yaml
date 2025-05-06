@@ -6,16 +6,22 @@ spec:
   backoffLimit: 0
   template:
     spec:
+      serviceAccountName: default
       containers:
         - name: wait
           image: bitnami/kubectl:latest
-          command:
-            - /bin/sh; -c
+          command: ["/bin/sh", "-c"]
+          args:
             - |
-              echo "Waiting for Eureka..."
+              echo "🔎 Waiting for Eureka..."
               for i in $(seq 1 30); do
-                if kubectl rollout status deployment/eureka-service -n spring; then exit 0; fi
+                if kubectl rollout status deployment/eureka-service -n spring; then
+                  echo "✅ Eureka is ready!"
+                  exit 0
+                fi
+                echo "⏳ Not ready yet... ($i/30)"
                 sleep 5
               done
+              echo "❌ Timed out waiting for Eureka"
               exit 1
       restartPolicy: Never

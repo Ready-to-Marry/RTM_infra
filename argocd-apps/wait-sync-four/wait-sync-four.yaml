@@ -6,12 +6,12 @@ spec:
   backoffLimit: 0
   template:
     spec:
+      serviceAccountName: default
       containers:
         - name: wait
           image: bitnami/kubectl:latest
-          command:
-            - /bin/sh
-            - -c
+          command: [ "/bin/sh", "-c" ]
+          args:
             - |
               echo "Waiting for services to be ready..."
               for i in $(seq 1 30); do
