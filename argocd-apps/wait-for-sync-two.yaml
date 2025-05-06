@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: wait-for-sync-two
-  namespace: argocd
+  namespace: spring
   annotations:
     argocd.argoproj.io/sync-wave: "3"
 spec:
