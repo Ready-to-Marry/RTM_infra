@@ -11,6 +11,9 @@ spec:
     repoURL: https://github.com/Ready-to-Marry/RTM_infra
     targetRevision: main
     path: eureka-service
+    helm:
+      valueFiles:
+        - values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: spring

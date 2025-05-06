@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: check-a-ready
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  template:
+    spec:
+      containers:
+        - name: check
+          image: busybox
+          command: ["sh", "-c", "curl -f http://rtm.com:30937/eureka"]
+      restartPolicy: Never
