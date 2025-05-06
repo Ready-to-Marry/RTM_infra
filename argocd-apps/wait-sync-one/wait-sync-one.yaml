@@ -1,8 +1,10 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: wait-sync-four
+  name: wait-sync-one
   namespace: spring
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   backoffLimit: 0
   template:
@@ -11,14 +13,14 @@ spec:
       containers:
         - name: wait
           image: bitnami/kubectl:latest
-          command: [ "/bin/sh", "-c" ]
+          command: ["/bin/sh", "-c"]
           args:
             - |
               echo "Waiting for services to be ready..."
               for i in $(seq 1 30); do
-                if kubectl get pods -l app=search-service -n spring | grep "1/1" | grep "Running" &&
-                   kubectl get pods -l app=payment-service -n spring | grep "1/1" | grep "Running" &&
-                   kubectl get pods -l app=auth-service -n spring | grep "1/1" | grep "Running"; then
+                if kubectl get pods -l app=user-service -n spring | grep "1/1" | grep "Running" &&
+                   kubectl get pods -l app=partner-service -n spring | grep "1/1" | grep "Running" &&
+                   kubectl get pods -l app=admin-service -n spring | grep "1/1" | grep "Running"; then
                   echo "All services are ready!"
                   exit 0
                 fi

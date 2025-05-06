@@ -3,6 +3,8 @@ kind: Job
 metadata:
   name: wait-sync-zero
   namespace: spring
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   backoffLimit: 0
   template:
