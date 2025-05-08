@@ -32,12 +32,11 @@ service:
 ingress:
   enabled: true
   className: "nginx"
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+  annotations: {}
   hosts:
-    - host: rtm.com
+    - host: catalog.rtm.com
       paths:
-        - path: /catalog
+        - path: /
           pathType: Prefix
   tls: []
 
