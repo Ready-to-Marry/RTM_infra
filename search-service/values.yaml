@@ -35,7 +35,7 @@ ingress:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
   hosts:
-    - host: rtm.com
+    - host: search.rtm.com
       paths:
         - path: /search
           pathType: Prefix
