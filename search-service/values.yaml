@@ -36,7 +36,7 @@ ingress:
   hosts:
     - host: search.rtm.com
       paths:
-        - path: /search
+        - path: /
           pathType: Prefix
   tls: []
 
