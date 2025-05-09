@@ -1,5 +1,4 @@
 replicas: 1
-
 minimumMasterNodes: 1
 
 esJavaOpts: "-Xms1g -Xmx1g"
@@ -47,9 +46,3 @@ image:
 
 service:
   type: ClusterIP
-
-volumeMounts: []
-volumes: []
-nodeSelector: {}
-tolerations: []
-affinity: {}
