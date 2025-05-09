@@ -7,17 +7,58 @@ metadata:
     argocd.argoproj.io/sync-wave: "3"
 spec:
   project: default
+
+  # ← path, repoURL=Git, helm.chart 방식이 아닌,
+  # Helm 차트 저장소를 직접 소스로 사용하는 방식
   source:
-    repoURL: https://github.com/Ready-to-Marry/RTM_infra
-    targetRevision: main
-    path: elasticsearch
+    repoURL: https://helm.elastic.co       # Helm 차트 저장소
+    chart: elasticsearch                   # 차트 이름
+    targetRevision: "8.5.1"                # 차트 버전
     helm:
-      chart: elasticsearch
-      repoURL: https://helm.elastic.co
-      version: 8.5.1
+      values: |                           # 여기에 여러분 values.yaml 전체를 인라인
+        replicas: 1
+        minimumMasterNodes: 1
+        esJavaOpts: "-Xms1g -Xmx1g"
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "2Gi"
+          limits:
+            cpu: "1"
+            memory: "2Gi"
+        volumeClaimTemplate:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 20Gi
+        persistence:
+          enabled: true
+        protocol: http
+        httpPort: 9200
+        esConfig:
+          elasticsearch.yml: |
+            xpack.security.enabled: false
+            node.store.allow_mmap: false
+            network.host: 0.0.0.0
+            discovery.seed_hosts: []
+            cluster.initial_master_nodes: ["elasticsearch-master-0"]
+        nodeGroup: "master"
+        roles:
+          master: "true"
+          ingest: "true"
+          data: "true"
+        image:
+          repository: docker.elastic.co/elasticsearch/elasticsearch
+          tag: "8.5.1"
+          pullPolicy: IfNotPresent
+        service:
+          type: ClusterIP
+
   destination:
     server: https://kubernetes.default.svc
     namespace: elasticsearch
+
   syncPolicy:
     automated:
       prune: true
