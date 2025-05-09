@@ -16,7 +16,7 @@ spec:
       repoURL: https://helm.elastic.co
       targetRevision: 8.5.1
       valueFiles:
-        - "https://github.com/YourOrg/YourRepo/path/to/elasticsearch/values.yaml"   # Git에서 values.yaml을 참조
+        - "https://github.com/Ready-to-Marry/RTM_infra/blob/main/elasticsearch/values.yaml"   # Git에서 values.yaml을 참조
   destination:
     server: https://kubernetes.default.svc
     namespace: elasticsearch
@@ -24,3 +24,4 @@ spec:
     automated:
       prune: true
       selfHeal: true
+
