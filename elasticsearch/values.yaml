@@ -1,0 +1,55 @@
+replicas: 1
+
+minimumMasterNodes: 1
+
+esJavaOpts: "-Xms1g -Xmx1g"
+
+resources:
+  requests:
+    cpu: "500m"
+    memory: "2Gi"
+  limits:
+    cpu: "1"
+    memory: "2Gi"
+
+volumeClaimTemplate:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+
+persistence:
+  enabled: true
+
+protocol: http
+httpPort: 9200
+
+esConfig:
+  elasticsearch.yml: |
+    xpack.security.enabled: false
+    node.store.allow_mmap: false
+    network.host: 0.0.0.0
+    discovery.seed_hosts: []
+    cluster.initial_master_nodes: ["elasticsearch-master-0"]
+
+nodeGroup: "master"
+
+roles:
+  master: "true"
+  ingest: "true"
+  data: "true"
+
+image:
+  repository: docker.elastic.co/elasticsearch/elasticsearch
+  tag: "8.12.2"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+
+volumeMounts: []
+volumes: []
+nodeSelector: {}
+tolerations: []
+affinity: {}
