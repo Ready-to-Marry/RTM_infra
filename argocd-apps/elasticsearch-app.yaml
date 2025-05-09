@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/elastic/helm-charts  # 공식 Helm 차트 저장소
+    repoURL: https://helm.elastic.co  # 공식 Helm 차트 저장소
     chart: elasticsearch  # 공식 차트 이름
     targetRevision: 8.5.1  # 차트 버전
     helm:
