@@ -42,7 +42,7 @@ roles:
 
 image:
   repository: docker.elastic.co/elasticsearch/elasticsearch
-  tag: "8.12.2"
+  tag: "8.5.1"
   pullPolicy: IfNotPresent
 
 service:
