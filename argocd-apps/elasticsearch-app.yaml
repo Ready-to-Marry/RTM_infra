@@ -18,3 +18,7 @@ spec:
     automated:
       prune: true
       selfHeal: true
+  volumes:
+    - name: es-data
+      persistentVolumeClaim:
+        claimName: local-pvc
