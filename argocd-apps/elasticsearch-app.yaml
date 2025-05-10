@@ -3,15 +3,14 @@ kind: Application
 metadata:
   name: elasticsearch
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "3"
 spec:
   project: default
   source:
-    repoURL: https://helm.elastic.co  # 공식 Helm 차트 저장소
-    chart: elasticsearch  # 공식 차트 이름
-    targetRevision: 8.5.1  # 차트 버전
-    helm:
-      valueFiles:
-        - "https://github.com/Ready-to-Marry/RTM_infra/blob/main/elasticsearch/values.yaml"  # 자신의 Git 저장소에서 `values.yaml` 파일을 직접 참조
+    repoURL: https://github.com/Ready-to-Marry/RTM_infra
+    targetRevision: main
+    path: elasticsearch
   destination:
     server: https://kubernetes.default.svc
     namespace: elasticsearch
