@@ -107,10 +107,10 @@ networkHost: "0.0.0.0"
 
 volumeClaimTemplate:
   accessModes: ["ReadWriteOnce"]
+  storageClassName: local-path
   resources:
     requests:
       storage: 30Gi
-  storageClassName: local-path  # 매우 중요!!! pv를 찾을 때 사용
 
 rbac:
   create: false
