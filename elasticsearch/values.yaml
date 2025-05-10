@@ -355,3 +355,7 @@ networkPolicy:
 
 tests:
   enabled: true
+
+xpack:
+  security:
+    enabled: false
