@@ -33,7 +33,6 @@ esConfig:
     xpack.security.transport.ssl.enabled: false
     xpack.security.http.ssl.enabled: false
     ingest.geoip.downloader.enabled: false
-    discovery.type: single-node
 #  GeoIP 오류 방지
 #  elasticsearch.yml: |
 #    key:
@@ -241,6 +240,10 @@ terminationGracePeriod: 120
 sysctlVmMaxMapCount: 262144
 
 readinessProbe:
+  httpGet:
+    path: /_cluster/health
+    port: 9200
+    scheme: HTTP
   failureThreshold: 3
   initialDelaySeconds: 10
   periodSeconds: 10
