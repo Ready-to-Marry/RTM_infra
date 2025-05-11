@@ -23,7 +23,7 @@ roles:
 
 replicas: 1
 minimumMasterNodes: 1
-
+discovery.type: single-node
 esMajorVersion: ""
 
 # Allows you to add any config files in /usr/share/elasticsearch/config/
