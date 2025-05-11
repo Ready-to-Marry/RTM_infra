@@ -240,10 +240,6 @@ terminationGracePeriod: 120
 sysctlVmMaxMapCount: 262144
 
 readinessProbe:
-  httpGet:
-    path: /_cluster/health
-    port: 9200
-    scheme: HTTP
   failureThreshold: 3
   initialDelaySeconds: 10
   periodSeconds: 10
