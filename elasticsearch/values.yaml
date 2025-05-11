@@ -33,6 +33,8 @@ esConfig:
     xpack.security.enabled: false
     xpack.security.transport.ssl.enabled: false
     xpack.security.http.ssl.enabled: false
+    ingest.geoip.downloader.enabled: false
+#  GeoIP 오류 방지
 #  elasticsearch.yml: |
 #    key:
 #      nestedkey: value
@@ -62,7 +64,7 @@ envFrom: []
 # Disable it to use your own elastic-credential Secret.
 secret:
   enabled: false
-  password: "222" # generated randomly if not defined
+#  password: "222" # generated randomly if not defined
 
 # A list of secrets and their paths to mount inside the pod
 # This is useful for mounting certificates for security and for mounting
