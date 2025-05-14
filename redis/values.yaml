@@ -327,11 +327,11 @@ master:
   ## master 리소스 세팅
   resources:
     requests:
-      cpu: 100m
-      memory: 256Mi
+      cpu: "100m"
+      memory: "256Mi"
     limits:
-      cpu: 300m
-      memory: 512Mi
+      cpu: "300m"
+      memory: "512Mi"
   ## Configure Pods Security Context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod
   ## @param master.podSecurityContext.enabled Enabled Redis(R) master pods' Security Context
@@ -818,11 +818,11 @@ replica:
   ## replica 리소스 세팅
   resources:
     requests:
-      cpu: 100m
-      memory: 256Mi
+      cpu: "100m"
+      memory: "256Mi"
     limits:
-      cpu: 300m
-      memory: 512Mi
+      cpu: "300m"
+      memory: "512Mi"
   ## Configure Pods Security Context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod
   ## @param replica.podSecurityContext.enabled Enabled Redis(R) replicas pods' Security Context
@@ -1408,11 +1408,11 @@ sentinel:
   ##
   resources:
     requests:
-      cpu: 50
-      memory: 128Mi
+      cpu: "50"
+      memory: "128Mi"
     limits:
-      cpu: 100
-      memory: 256Mi
+      cpu: "100"
+      memory: "256Mi"
   ## Configure Container Security Context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod
   ## @param sentinel.containerSecurityContext.enabled Enabled Redis(R) Sentinel containers' Security Context
