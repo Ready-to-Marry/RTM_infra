@@ -151,11 +151,11 @@ auth:
   ## @param auth.password Redis(R) password
   ## Defaults to a random 10-character alphanumeric string if not set
   ##
-  password: redis-auth-secret
+  password: ""
   ## @param auth.existingSecret The name of an existing secret with Redis(R) credentials
   ## NOTE: When it's set, the previous `auth.password` parameter is ignored
   ##
-  existingSecret: ""
+  existingSecret: redis-auth-secret
   ## @param auth.existingSecretPasswordKey Password key to be retrieved from existing secret
   ## NOTE: ignored unless `auth.existingSecret` parameter is set
   ##
@@ -1189,7 +1189,8 @@ sentinel:
   ## ref: https://hub.docker.com/r/bitnami/redis-sentinel/tags/
   ## @param sentinel.image.registry [default: REGISTRY_NAME] Redis(R) Sentinel image registry
   ## @param sentinel.image.repository [default: REPOSITORY_NAME/redis-sentinel] Redis(R) Sentinel image repository
-  ## @skip sentinel.image.tag Redis(R) Sentinel image tag (immutable tags are recommended)
+  ## @skip sentine
+  l.image.tag Redis(R) Sentinel image tag (immutable tags are recommended)
   ## @param sentinel.image.digest Redis(R) Sentinel image digest in the way sha256:aa.... Please note this parameter, if set, will override the tag
   ## @param sentinel.image.pullPolicy Redis(R) Sentinel image pull policy
   ## @param sentinel.image.pullSecrets Redis(R) Sentinel image pull secrets
