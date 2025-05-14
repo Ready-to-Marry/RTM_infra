@@ -1184,7 +1184,7 @@ sentinel:
   ## IMPORTANT: this will disable the master and replicas services and
   ## create a single Redis(R) service exposing both the Redis and Sentinel ports
   ##
-  enabled: false
+  enabled: true
   ## Bitnami Redis(R) Sentinel image version
   ## ref: https://hub.docker.com/r/bitnami/redis-sentinel/tags/
   ## @param sentinel.image.registry [default: REGISTRY_NAME] Redis(R) Sentinel image registry
