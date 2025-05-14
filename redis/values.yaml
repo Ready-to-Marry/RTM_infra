@@ -1408,10 +1408,10 @@ sentinel:
   ##
   resources:
     requests:
-      cpu: "50"
+      cpu: "50m"
       memory: "128Mi"
     limits:
-      cpu: "100"
+      cpu: "100m"
       memory: "256Mi"
   ## Configure Container Security Context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-pod
