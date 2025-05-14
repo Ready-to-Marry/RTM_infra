@@ -511,7 +511,7 @@ master:
   persistence:
     ## @param master.persistence.enabled Enable persistence on Redis(R) master nodes using Persistent Volume Claims
     ##
-    enabled: true
+    enabled: false
     ## @param master.persistence.medium Provide a medium for `emptyDir` volumes.
     ##
     medium: ""
@@ -534,7 +534,7 @@ master:
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
     ## If undefined (the default) or set to null, no storageClassName spec is set, choosing the default provisioner
     ##
-    storageClass: "local-path"
+    storageClass: ""
     ## @param master.persistence.accessModes Persistent Volume access modes
     ##
     accessModes:
@@ -1002,7 +1002,7 @@ replica:
   persistence:
     ## @param replica.persistence.enabled Enable persistence on Redis(R) replicas nodes using Persistent Volume Claims
     ##
-    enabled: true
+    enabled: false
     ## @param replica.persistence.medium Provide a medium for `emptyDir` volumes.
     ##
     medium: ""
@@ -1025,7 +1025,7 @@ replica:
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
     ## If undefined (the default) or set to null, no storageClassName spec is set, choosing the default provisioner
     ##
-    storageClass: "local-path"
+    storageClass: ""
     ## @param replica.persistence.accessModes Persistent Volume access modes
     ##
     accessModes:
