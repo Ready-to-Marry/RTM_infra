@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/Ready-to-Marry/RTM_infra
-    targetRevision: main
+    targetRevision: onprem
     path: argocd-apps
     directory:
       recurse: true

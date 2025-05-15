@@ -9,7 +9,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/Ready-to-Marry/RTM_infra
-    targetRevision: main
+    targetRevision: onprem
     path: eureka-service
   destination:
     server: https://kubernetes.default.svc
