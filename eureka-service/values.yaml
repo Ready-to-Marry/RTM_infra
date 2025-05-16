@@ -75,7 +75,8 @@ autoscaling:
 volumes: []
 volumeMounts: []
 
-nodeSelector: {}
+nodeSelector:
+  node-role.kubernetes.io/spring: "true"
 
 tolerations: []
 
