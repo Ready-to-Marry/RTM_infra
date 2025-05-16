@@ -255,7 +255,8 @@ clusterHealthCheckParams: "wait_for_status=green&timeout=1s"
 schedulerName: ""
 
 imagePullSecrets: []
-nodeSelector: {}
+nodeSelector:
+  node-role.kubernetes.io/database: "true"
 tolerations: []
 
 # Enabling this will publicly expose your Elasticsearch instance.
