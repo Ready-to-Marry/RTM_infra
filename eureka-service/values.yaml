@@ -4,7 +4,7 @@ revisionHistoryLimit: 2
 image:
   repository: hyundooboo/rtm-eureka-service
   pullPolicy: IfNotPresent
-  tag: "8"
+  tag: "1"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -75,7 +75,8 @@ autoscaling:
 volumes: []
 volumeMounts: []
 
-nodeSelector: {}
+nodeSelector:
+  node-role.kubernetes.io/spring: "true"
 
 tolerations: []
 

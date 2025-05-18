@@ -445,7 +445,8 @@ master:
   ## @param master.nodeSelector Node labels for Redis(R) master pods assignment
   ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
   ##
-  nodeSelector: {}
+  nodeSelector:
+    node-role.kubernetes.io/database: "true"
   ## @param master.tolerations Tolerations for Redis(R) master pods assignment
   ## ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
   ##
@@ -936,7 +937,8 @@ replica:
   ## @param replica.nodeSelector Node labels for Redis(R) replicas pods assignment
   ## ref: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/
   ##
-  nodeSelector: {}
+  nodeSelector:
+    node-role.kubernetes.io/database: "true"
   ## @param replica.tolerations Tolerations for Redis(R) replicas pods assignment
   ## ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
   ##

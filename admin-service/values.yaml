@@ -4,7 +4,7 @@ revisionHistoryLimit: 2
 image:
   repository: hyundooboo/rtm-admin-service
   pullPolicy: IfNotPresent
-  tag: "4"
+  tag: "1"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -74,7 +74,8 @@ autoscaling:
 volumes: []
 volumeMounts: []
 
-nodeSelector: {}
+nodeSelector:
+  node-role.kubernetes.io/spring: "true"
 
 tolerations: []
 
