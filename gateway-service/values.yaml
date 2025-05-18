@@ -31,17 +31,25 @@ service:
 
 ingress:
   enabled: true
+  # ALB Ingress Controller가 인식하는 ingress class 이름 (보통 'alb' 또는 'aws-alb' 등)
   className: "alb"
   annotations:
+    kubernetes.io/ingress.class: alb
+    # 인터넷용 ALB, 내부용은 internal
     alb.ingress.kubernetes.io/scheme: internet-facing
+    # 'ip' 또는 'instance' (보통 ip 권장)
     alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}]'
-    alb.ingress.kubernetes.io/group.name: gateway-group
-  hosts:
-    - host: gateway.rtm.com
-      paths:
-        - path: /
-          pathType: Prefix
+    # HTTP 80포트 리스닝
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
+    alb.ingress.kubernetes.io/healthcheck-path: /actuator/health
+    alb.ingress.kubernetes.io/healthcheck-port: "8089"
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
+    alb.ingress.kubernetes.io/healthcheck-interval-seconds: '30'
+  hosts: []
+#    - host: gateway.rtm.com
+#      paths:
+#        - path: /
+#          pathType: Prefix
   tls: []
 
 resources:
