@@ -87,7 +87,7 @@ volumes: []
 volumeMounts: []
 
 nodeSelector:
-  node-role.kubernetes.io/spring: "true"
+  nodegroup: "spring"
 
 tolerations: []
 
