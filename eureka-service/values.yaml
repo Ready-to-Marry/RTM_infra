@@ -30,7 +30,7 @@ service:
   port: 8761
 
 ingress:
-  enabled: true
+  enabled: false
   className: "nginx"
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: ""
