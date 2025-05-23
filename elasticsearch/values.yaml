@@ -256,7 +256,7 @@ schedulerName: ""
 
 imagePullSecrets: []
 nodeSelector:
-  node-role.kubernetes.io/database: "true"
+  nodegroup: "database"
 tolerations: []
 
 # Enabling this will publicly expose your Elasticsearch instance.
