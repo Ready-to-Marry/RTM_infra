@@ -28,7 +28,7 @@ global:
     ## @param global.security.allowInsecureImages Allows skipping image verification
     allowInsecureImages: false
   redis:
-    password: ""
+    password: "1a2b3c4d!"
   ## Compatibility adaptations for Kubernetes platforms
   ##
   compatibility:
@@ -151,7 +151,7 @@ auth:
   ## @param auth.password Redis(R) password
   ## Defaults to a random 10-character alphanumeric string if not set
   ##
-  password: ""
+  password: "1a2b3c4d!"
   ## @param auth.existingSecret The name of an existing secret with Redis(R) credentials
   ## NOTE: When it's set, the previous `auth.password` parameter is ignored
   ##
