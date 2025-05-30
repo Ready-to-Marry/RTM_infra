@@ -86,3 +86,6 @@ env:
   EUREKA_CLIENT_FETCH_REGISTRY: "true"
   EUREKA_INSTANCE_PREFER_IP_ADDRESS: "true"
 
+secrets:
+  db:
+    secretRef: rtm-gateway-service-secret
