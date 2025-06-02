@@ -45,13 +45,11 @@ ingress:
     alb.ingress.kubernetes.io/healthcheck-port: "8089"
     alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
     alb.ingress.kubernetes.io/healthcheck-interval-seconds: '30'
-  hosts: []
-    # 또는
-    # hosts:
-    # - {}
-  paths:
-    - path: /
-      pathType: Prefix
+  hosts:
+    - host: ""
+      paths:
+        - path: /
+          pathType: Prefix
   tls: []
 
 resources:
