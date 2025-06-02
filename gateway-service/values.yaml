@@ -4,7 +4,7 @@ revisionHistoryLimit: 2
 image:
   repository: hyundooboo/rtm-gateway-service
   pullPolicy: IfNotPresent
-  tag: "23"
+  tag: "30"
 
 imagePullSecrets:
   - name: regcred
