@@ -4,7 +4,7 @@ revisionHistoryLimit: 2
 image:
   repository: hyundooboo/rtm-partner-service
   pullPolicy: IfNotPresent
-  tag: "12"
+  tag: "13"
 
 imagePullSecrets: []
 nameOverride: ""
