@@ -117,7 +117,7 @@ volumeClaimTemplate:
   storageClassName: gp3
   resources:
     requests:
-      storage: 30Gi
+      storage: 20Gi
 
 rbac:
   create: false
