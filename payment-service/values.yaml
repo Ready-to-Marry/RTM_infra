@@ -4,7 +4,7 @@ revisionHistoryLimit: 2
 image:
   repository: hyundooboo/rtm-payment-service
   pullPolicy: IfNotPresent
-  tag: "13"
+  tag: "14"
 
 imagePullSecrets:
   - name: regcred
