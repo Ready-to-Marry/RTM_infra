@@ -4,7 +4,7 @@ revisionHistoryLimit: 2
 image:
   repository: hyundooboo/rtm-user-service
   pullPolicy: IfNotPresent
-  tag: "3"
+  tag: "4"
 
 imagePullSecrets:
   - name: regcred
