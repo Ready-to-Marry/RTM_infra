@@ -41,22 +41,22 @@ ingress:
   tls: []
 
 
-resources:
-  requests:
-    memory: "512Mi"
-    cpu: "250m"
-  limits:
-    memory: "1Gi"
-    cpu: "500m"
-
-# Auto Scaling Group test resource set
 #resources:
 #  requests:
-#    memory: "3100Mi"
-#    cpu: "1500m"
+#    memory: "512Mi"
+#    cpu: "250m"
 #  limits:
-#    memory: "7Gi"
-#    cpu: "4000m"
+#    memory: "1Gi"
+#    cpu: "500m"
+
+# Auto Scaling Group test resource set
+resources:
+  requests:
+    memory: "3100Mi"
+    cpu: "1500m"
+  limits:
+    memory: "7Gi"
+    cpu: "4000m"
 
 livenessProbe:
   httpGet:
